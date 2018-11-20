@@ -10,7 +10,7 @@ namespace DAO
         SqlConnection cn;
         public DataProvider()
         {
-            string cnStr = @"Data Source=DESKTOP-D96QOIU\SQLEXPRESS;Initial Catalog=Store;Integrated Security=True";
+            string cnStr = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Store;Integrated Security=True";
             cn = new SqlConnection(cnStr);
         }
         public void Connect()
