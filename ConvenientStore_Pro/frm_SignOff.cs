@@ -24,11 +24,6 @@ namespace ConvenientStore_Pro
             String s = dt.ToString("HH:mm -- dd/MM/yyyy");
             lbDateTime.Text = s;
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
         private void TxtChange(TextBox txt, Label lb1, Label lb2)
         {
             if (txt.Text != "")
@@ -188,6 +183,11 @@ namespace ConvenientStore_Pro
                 MessageBox.Show("Plese enter number", "ERROR: TEXTBOX IS EMPTY",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

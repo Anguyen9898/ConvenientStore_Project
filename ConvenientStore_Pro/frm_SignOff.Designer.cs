@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.lb500k = new System.Windows.Forms.Label();
@@ -74,38 +73,32 @@
             this.lbx200k = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.lbx500k = new System.Windows.Forms.Label();
+            this.btn_Can = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(143, 481);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 38);
-            this.btnCancel.TabIndex = 28;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(319, 481);
+            this.btnOK.Location = new System.Drawing.Point(319, 512);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(116, 38);
             this.btnOK.TabIndex = 27;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(130, 445);
+            this.label11.Location = new System.Drawing.Point(135, 443);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 23);
             this.label11.TabIndex = 25;
-            this.label11.Text = "Tổng cộng:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label11.Text = "Cash:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lb500k
             // 
@@ -549,13 +542,57 @@
             this.lbx500k.TabIndex = 14;
             this.lbx500k.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_Can
+            // 
+            this.btn_Can.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_Can.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Can.Location = new System.Drawing.Point(117, 512);
+            this.btn_Can.Name = "btn_Can";
+            this.btn_Can.Size = new System.Drawing.Size(116, 38);
+            this.btn_Can.TabIndex = 27;
+            this.btn_Can.Text = "Cancel";
+            this.btn_Can.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(234, 475);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(147, 25);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.Text = "0";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(387, 477);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 23);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "VND";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(135, 475);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 23);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Cre Card:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frm_SignOff
             // 
+            this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 531);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(489, 568);
+            this.Controls.Add(this.btn_Can);
             this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lb500k);
             this.Controls.Add(this.lb200k);
@@ -567,6 +604,7 @@
             this.Controls.Add(this.lb2k);
             this.Controls.Add(this.lb1k);
             this.Controls.Add(this.lbDateTime);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbx500k);
             this.Controls.Add(this.label21);
@@ -588,6 +626,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lbx500);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lb500);
             this.Controls.Add(this.txtTong);
             this.Controls.Add(this.txt500k);
@@ -611,8 +650,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lb500k;
@@ -658,5 +695,9 @@
         private System.Windows.Forms.Label lbx200k;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label lbx500k;
+        private System.Windows.Forms.Button btn_Can;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }

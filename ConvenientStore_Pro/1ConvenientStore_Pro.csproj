@@ -56,6 +56,12 @@
     <Compile Include="frm_SignOff.Designer.cs">
       <DependentUpon>frm_SignOff.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Sum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Sum.Designer.cs">
+      <DependentUpon>frm_Sum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="frm_SignOff.resx">
       <DependentUpon>frm_SignOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Sum.resx">
+      <DependentUpon>frm_Sum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -56,10 +56,10 @@
             this.lb_Note = new System.Windows.Forms.Label();
             this.Barcode_textBox = new System.Windows.Forms.TextBox();
             this.sC_Detail = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.sC_Main = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Tool)).BeginInit();
             this.sC_Tool.Panel1.SuspendLayout();
             this.sC_Tool.Panel2.SuspendLayout();
@@ -81,11 +81,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.sC_Detail)).BeginInit();
             this.sC_Detail.Panel1.SuspendLayout();
             this.sC_Detail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Main)).BeginInit();
             this.sC_Main.Panel1.SuspendLayout();
             this.sC_Main.Panel2.SuspendLayout();
             this.sC_Main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -461,6 +461,18 @@
             this.sC_Detail.SplitterDistance = 280;
             this.sC_Detail.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ConvenientStore_Pro.Properties.Resources.Picture10;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(487, 280);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // listBox1
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -497,18 +509,6 @@
             this.sC_Main.Size = new System.Drawing.Size(800, 450);
             this.sC_Main.SplitterDistance = 494;
             this.sC_Main.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ConvenientStore_Pro.Properties.Resources.Picture10;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(487, 280);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // frm_Main
             // 
@@ -551,11 +551,11 @@
             this.sC_Detail.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sC_Detail)).EndInit();
             this.sC_Detail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sC_Main.Panel1.ResumeLayout(false);
             this.sC_Main.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sC_Main)).EndInit();
             this.sC_Main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

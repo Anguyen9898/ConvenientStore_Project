@@ -54,12 +54,13 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.lbDateTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lb_Employee = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt500
             // 
             this.txt500.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt500.Location = new System.Drawing.Point(160, 40);
+            this.txt500.Location = new System.Drawing.Point(160, 72);
             this.txt500.Multiline = true;
             this.txt500.Name = "txt500";
             this.txt500.Size = new System.Drawing.Size(92, 25);
@@ -73,7 +74,7 @@
             // txt1k
             // 
             this.txt1k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt1k.Location = new System.Drawing.Point(160, 76);
+            this.txt1k.Location = new System.Drawing.Point(160, 108);
             this.txt1k.Multiline = true;
             this.txt1k.Name = "txt1k";
             this.txt1k.Size = new System.Drawing.Size(92, 25);
@@ -87,7 +88,7 @@
             // txt2k
             // 
             this.txt2k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt2k.Location = new System.Drawing.Point(160, 114);
+            this.txt2k.Location = new System.Drawing.Point(160, 146);
             this.txt2k.Multiline = true;
             this.txt2k.Name = "txt2k";
             this.txt2k.Size = new System.Drawing.Size(92, 25);
@@ -101,7 +102,7 @@
             // txt5k
             // 
             this.txt5k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt5k.Location = new System.Drawing.Point(160, 155);
+            this.txt5k.Location = new System.Drawing.Point(160, 187);
             this.txt5k.Multiline = true;
             this.txt5k.Name = "txt5k";
             this.txt5k.Size = new System.Drawing.Size(92, 25);
@@ -115,7 +116,7 @@
             // txt10k
             // 
             this.txt10k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt10k.Location = new System.Drawing.Point(160, 196);
+            this.txt10k.Location = new System.Drawing.Point(160, 228);
             this.txt10k.Multiline = true;
             this.txt10k.Name = "txt10k";
             this.txt10k.Size = new System.Drawing.Size(92, 25);
@@ -129,7 +130,7 @@
             // txt20k
             // 
             this.txt20k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt20k.Location = new System.Drawing.Point(160, 237);
+            this.txt20k.Location = new System.Drawing.Point(160, 269);
             this.txt20k.Multiline = true;
             this.txt20k.Name = "txt20k";
             this.txt20k.Size = new System.Drawing.Size(92, 25);
@@ -143,7 +144,7 @@
             // txt50k
             // 
             this.txt50k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt50k.Location = new System.Drawing.Point(160, 279);
+            this.txt50k.Location = new System.Drawing.Point(160, 311);
             this.txt50k.Multiline = true;
             this.txt50k.Name = "txt50k";
             this.txt50k.Size = new System.Drawing.Size(92, 25);
@@ -157,7 +158,7 @@
             // txt100k
             // 
             this.txt100k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt100k.Location = new System.Drawing.Point(160, 324);
+            this.txt100k.Location = new System.Drawing.Point(160, 356);
             this.txt100k.Multiline = true;
             this.txt100k.Name = "txt100k";
             this.txt100k.Size = new System.Drawing.Size(92, 25);
@@ -171,7 +172,7 @@
             // txt200k
             // 
             this.txt200k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt200k.Location = new System.Drawing.Point(160, 363);
+            this.txt200k.Location = new System.Drawing.Point(160, 395);
             this.txt200k.Multiline = true;
             this.txt200k.Name = "txt200k";
             this.txt200k.Size = new System.Drawing.Size(92, 25);
@@ -185,7 +186,7 @@
             // txt500k
             // 
             this.txt500k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt500k.Location = new System.Drawing.Point(160, 403);
+            this.txt500k.Location = new System.Drawing.Point(160, 435);
             this.txt500k.Multiline = true;
             this.txt500k.Name = "txt500k";
             this.txt500k.Size = new System.Drawing.Size(92, 25);
@@ -199,9 +200,10 @@
             // txtTong
             // 
             this.txtTong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTong.Location = new System.Drawing.Point(193, 451);
+            this.txtTong.Location = new System.Drawing.Point(193, 483);
             this.txtTong.Multiline = true;
             this.txtTong.Name = "txtTong";
+            this.txtTong.ReadOnly = true;
             this.txtTong.Size = new System.Drawing.Size(147, 25);
             this.txtTong.TabIndex = 0;
             this.txtTong.Text = "0";
@@ -210,7 +212,7 @@
             // lb500
             // 
             this.lb500.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb500.Location = new System.Drawing.Point(106, 42);
+            this.lb500.Location = new System.Drawing.Point(106, 74);
             this.lb500.Name = "lb500";
             this.lb500.Size = new System.Drawing.Size(48, 23);
             this.lb500.TabIndex = 1;
@@ -220,7 +222,7 @@
             // lb1k
             // 
             this.lb1k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb1k.Location = new System.Drawing.Point(106, 79);
+            this.lb1k.Location = new System.Drawing.Point(106, 111);
             this.lb1k.Name = "lb1k";
             this.lb1k.Size = new System.Drawing.Size(48, 23);
             this.lb1k.TabIndex = 1;
@@ -230,7 +232,7 @@
             // lb2k
             // 
             this.lb2k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb2k.Location = new System.Drawing.Point(106, 116);
+            this.lb2k.Location = new System.Drawing.Point(106, 148);
             this.lb2k.Name = "lb2k";
             this.lb2k.Size = new System.Drawing.Size(48, 23);
             this.lb2k.TabIndex = 1;
@@ -240,7 +242,7 @@
             // lb5k
             // 
             this.lb5k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb5k.Location = new System.Drawing.Point(106, 155);
+            this.lb5k.Location = new System.Drawing.Point(106, 187);
             this.lb5k.Name = "lb5k";
             this.lb5k.Size = new System.Drawing.Size(48, 23);
             this.lb5k.TabIndex = 1;
@@ -250,7 +252,7 @@
             // lb10k
             // 
             this.lb10k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb10k.Location = new System.Drawing.Point(90, 196);
+            this.lb10k.Location = new System.Drawing.Point(90, 228);
             this.lb10k.Name = "lb10k";
             this.lb10k.Size = new System.Drawing.Size(68, 23);
             this.lb10k.TabIndex = 1;
@@ -260,7 +262,7 @@
             // lb20k
             // 
             this.lb20k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb20k.Location = new System.Drawing.Point(87, 241);
+            this.lb20k.Location = new System.Drawing.Point(87, 273);
             this.lb20k.Name = "lb20k";
             this.lb20k.Size = new System.Drawing.Size(72, 23);
             this.lb20k.TabIndex = 1;
@@ -270,7 +272,7 @@
             // lb50k
             // 
             this.lb50k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb50k.Location = new System.Drawing.Point(87, 279);
+            this.lb50k.Location = new System.Drawing.Point(87, 311);
             this.lb50k.Name = "lb50k";
             this.lb50k.Size = new System.Drawing.Size(68, 23);
             this.lb50k.TabIndex = 1;
@@ -280,7 +282,7 @@
             // lb100k
             // 
             this.lb100k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb100k.Location = new System.Drawing.Point(87, 324);
+            this.lb100k.Location = new System.Drawing.Point(87, 356);
             this.lb100k.Name = "lb100k";
             this.lb100k.Size = new System.Drawing.Size(68, 23);
             this.lb100k.TabIndex = 1;
@@ -290,7 +292,7 @@
             // lb200k
             // 
             this.lb200k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb200k.Location = new System.Drawing.Point(86, 367);
+            this.lb200k.Location = new System.Drawing.Point(86, 399);
             this.lb200k.Name = "lb200k";
             this.lb200k.Size = new System.Drawing.Size(68, 23);
             this.lb200k.TabIndex = 1;
@@ -300,7 +302,7 @@
             // lb500k
             // 
             this.lb500k.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb500k.Location = new System.Drawing.Point(86, 406);
+            this.lb500k.Location = new System.Drawing.Point(86, 438);
             this.lb500k.Name = "lb500k";
             this.lb500k.Size = new System.Drawing.Size(68, 23);
             this.lb500k.TabIndex = 1;
@@ -310,7 +312,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(89, 453);
+            this.label11.Location = new System.Drawing.Point(89, 485);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 23);
             this.label11.TabIndex = 1;
@@ -320,7 +322,7 @@
             // btnOK
             // 
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(244, 482);
+            this.btnOK.Location = new System.Drawing.Point(244, 514);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(116, 38);
             this.btnOK.TabIndex = 2;
@@ -330,8 +332,9 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(113, 482);
+            this.btnCancel.Location = new System.Drawing.Point(113, 514);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 38);
             this.btnCancel.TabIndex = 2;
@@ -352,18 +355,30 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(346, 453);
+            this.label1.Location = new System.Drawing.Point(346, 485);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "VND";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lb_Employee
+            // 
+            this.lb_Employee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Employee.Location = new System.Drawing.Point(22, 37);
+            this.lb_Employee.Name = "lb_Employee";
+            this.lb_Employee.Size = new System.Drawing.Size(353, 28);
+            this.lb_Employee.TabIndex = 3;
+            this.lb_Employee.Text = "DateTime";
+            this.lb_Employee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frm_SignOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 541);
+            this.CancelButton = this.btnCancel;
+            this.ClientSize = new System.Drawing.Size(422, 576);
+            this.Controls.Add(this.lb_Employee);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label11);
@@ -403,31 +418,32 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt500;
-        private System.Windows.Forms.TextBox txt1k;
-        private System.Windows.Forms.TextBox txt2k;
-        private System.Windows.Forms.TextBox txt5k;
-        private System.Windows.Forms.TextBox txt10k;
-        private System.Windows.Forms.TextBox txt20k;
-        private System.Windows.Forms.TextBox txt50k;
-        private System.Windows.Forms.TextBox txt100k;
-        private System.Windows.Forms.TextBox txt200k;
-        private System.Windows.Forms.TextBox txt500k;
-        private System.Windows.Forms.TextBox txtTong;
-        private System.Windows.Forms.Label lb500;
-        private System.Windows.Forms.Label lb1k;
-        private System.Windows.Forms.Label lb2k;
-        private System.Windows.Forms.Label lb5k;
-        private System.Windows.Forms.Label lb10k;
-        private System.Windows.Forms.Label lb20k;
-        private System.Windows.Forms.Label lb50k;
-        private System.Windows.Forms.Label lb100k;
-        private System.Windows.Forms.Label lb200k;
-        private System.Windows.Forms.Label lb500k;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lbDateTime;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txt500;
+        public System.Windows.Forms.TextBox txt1k;
+        public System.Windows.Forms.TextBox txt2k;
+        public System.Windows.Forms.TextBox txt5k;
+        public System.Windows.Forms.TextBox txt10k;
+        public System.Windows.Forms.TextBox txt20k;
+        public System.Windows.Forms.TextBox txt50k;
+        public System.Windows.Forms.TextBox txt100k;
+        public System.Windows.Forms.TextBox txt200k;
+        public System.Windows.Forms.TextBox txt500k;
+        public System.Windows.Forms.TextBox txtTong;
+        public System.Windows.Forms.Label lb500;
+        public System.Windows.Forms.Label lb1k;
+        public System.Windows.Forms.Label lb2k;
+        public System.Windows.Forms.Label lb5k;
+        public System.Windows.Forms.Label lb10k;
+        public System.Windows.Forms.Label lb20k;
+        public System.Windows.Forms.Label lb50k;
+        public System.Windows.Forms.Label lb100k;
+        public System.Windows.Forms.Label lb200k;
+        public System.Windows.Forms.Label lb500k;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Button btnOK;
+        public System.Windows.Forms.Button btnCancel;
+        public System.Windows.Forms.Label lbDateTime;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lb_Employee;
     }
 }

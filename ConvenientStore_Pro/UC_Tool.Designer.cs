@@ -87,7 +87,7 @@
             this.btn_Off.TabIndex = 2;
             this.btn_Off.Text = "Sign Off";
             this.btn_Off.UseVisualStyleBackColor = true;
-            this.btn_Off.Click += new System.EventHandler(this.btn_Off_Click);
+            //this.btn_Off.Click += new System.EventHandler(this.btn_Off_Click);
             // 
             // btn_Tender
             // 

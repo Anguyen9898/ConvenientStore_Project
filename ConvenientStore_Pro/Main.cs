@@ -15,18 +15,27 @@ namespace ConvenientStore_Pro
 {
     public partial class frm_Main : Form
     {
-        frm_SignOn frm_Sign;
+        frm_SignOn SignOn;
+        frm_SignOff signOff;
+        frm_Sum Sum;
         ScannerBUS Scanner;
-        SignOnBUS Sign;
+        SignOnBUS SignBus;
         String barcode="";
-        String EmployeeName = "";
+        DateTime dt = DateTime.Now;
         bool Test = false;
+        double Funds = 0;
+        public string EmployeeName { get; set; }
         public frm_Main()
         {
             InitializeComponent();
             Scanner = new ScannerBUS();
-            Sign = new SignOnBUS();
-            frm_Sign = new frm_SignOn();
+            SignBus = new SignOnBUS();
+            SignOn = new frm_SignOn();
+            signOff = new frm_SignOff();
+            Sum = new frm_Sum();
+            UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
+            UC_OK.Instance.btn_OK.Click += Btn_OK_Tool_Click;
+            UC_Tool.Instance.btn_Off.Click += Btn_Off_Click;
         }
         private void btn_1_Click(object sender, EventArgs e)
         {
@@ -46,8 +55,9 @@ namespace ConvenientStore_Pro
         private void Enter_btn_ID()
         {
             barcode = Barcode_textBox.Text;
-            EmployeeName = Sign.getNameID(barcode);
-            Test = Sign.SignOn_ID(barcode);
+            EmployeeName = SignBus.getNameID(barcode);
+            Test = SignBus.SignOn_ID(barcode);
+            SignOn.lb_Employee.Text = "#Employee: " + EmployeeName;
             if (Test == true)
             {
                 Barcode_textBox.Text = null;
@@ -64,13 +74,13 @@ namespace ConvenientStore_Pro
         private void Enter_btn_Pass()
         {
             barcode = Barcode_textBox.Text;
-            Test = Sign.SignOn_Pass(barcode);
+            Test = SignBus.SignOn_Pass(barcode);
             if (Test == true)
             {
                 Barcode_textBox.Text = null;
                 this.Enabled = false;
-                frm_Sign.ShowDialog();
-                if(frm_Sign.DialogResult== DialogResult.OK)
+                SignOn.ShowDialog();
+                if(SignOn.DialogResult== DialogResult.OK)
                 {
                     this.Enabled = true;
                     sC_Tool2.Panel2.Controls.Remove(UC_Em.Instance);
@@ -78,15 +88,17 @@ namespace ConvenientStore_Pro
                     UC_Tool.Instance.Dock = DockStyle.Fill;
                     lb_Note.Text = "Please scan barcode or input from keyboard";
                     Barcode_textBox.PasswordChar = '\0';
+                    Funds = SignOn.Funds;
                 }
-                if (frm_Sign.DialogResult == DialogResult.Cancel)
+                else if (SignOn.DialogResult == DialogResult.Cancel)
                 {
-                    frm_Sign.Close();
+                    //frm_Sign.Close();
                     this.Enabled = true;
                     lb_Note.Text = "Choose Sign ON button to enter the system or Exit button to exit";
                     sC_Tool2.Panel2.Controls.Remove(UC_Em.Instance);
                     sC_Tool2.Panel2.Controls.Add(UC_SignOn.Instance);
                     UC_SignOn.Instance.Dock = DockStyle.Fill;
+                    Barcode_textBox.PasswordChar = '\0';
                 }
             }
             else
@@ -153,19 +165,25 @@ namespace ConvenientStore_Pro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            if (EmployeeName=="")
-                infor_label.Text = dt.ToString("HH:mm:ss -- dd/MM/yyyy"); 
-            else
+            if(SignOn.DialogResult==DialogResult.OK)
                 infor_label.Text = dt.ToString("HH:mm:ss -- dd/MM/yyyy\n" + EmployeeName);
+            else
+                infor_label.Text = dt.ToString("HH:mm:ss -- dd/MM/yyyy"); 
         }
 
         private void frm_Main_Shown(object sender, EventArgs e)
         {
             Barcode_textBox.Focus();
             timer1.Start();
-            UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
-            UC_OK.Instance.btn_OK.Click += Btn_OK_Tool_Click;
+        }
+
+        private void Btn_Off_Click(object sender, EventArgs e)
+        {
+            signOff.ShowDialog();
+            if(signOff.DialogResult==DialogResult.OK)
+            {
+                Sum.ShowDialog();
+            }
         }
 
         private void Btn_SignOn_Click(object sender, EventArgs e)

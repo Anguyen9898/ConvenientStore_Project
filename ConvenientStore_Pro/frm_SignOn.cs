@@ -12,15 +12,15 @@ namespace ConvenientStore_Pro
 {
     public partial class frm_SignOn : Form
     {
+        public double Funds { get; set; }
         public frm_SignOn()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
         private void frm_SignOn_Shown(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            String s = dt.ToString("HH:mm -- dd/MM/yyyy");
-            lbDateTime.Text = s;
+            lbDateTime.Text = dt.ToString("HH:mm -- dd/MM/yyyy");
         }
         private void Txt(TextBox txt)
         {
@@ -233,7 +233,6 @@ namespace ConvenientStore_Pro
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-
         }
 
         private void txt500_KeyPress(object sender, KeyPressEventArgs e)
@@ -247,6 +246,7 @@ namespace ConvenientStore_Pro
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            Funds = double.Parse(txtTong.Text);
         }
     }  
 }
