@@ -23,6 +23,7 @@ namespace ConvenientStore_Pro
         String barcode="";
         DateTime dt = DateTime.Now;
         bool Test = false;
+        double Tendered = 0;
         double Funds = 0;
         public string EmployeeName { get; set; }
         public frm_Main()
@@ -118,11 +119,15 @@ namespace ConvenientStore_Pro
                 {
                     Barcode_textBox.Text = null;
                     pictureBox1.Visible = false;
-                    //pictureBox1.Dock = DockStyle.Bottom;
-                    listBox1.Items.Add("  --   " + Scanner.GetProducts(barcode).proName + "                         " +
+                    TreeNode treeNode = new TreeNode("--   " + Scanner.GetProducts(barcode).proName + "                         " +
                         "                " + Scanner.GetProducts(barcode).netW + "                   " + Scanner.GetProducts(barcode).sellingP.ToString("###,###"));
-                    listBox1.Items.Add("       " + barcode + "@1");
-                    listBox1.Items.Add(string.Format(Environment.NewLine));
+                    treeNode.Expand();
+                    TreeNode childNode = new TreeNode("       " + barcode + "    @1");
+                    childNode.Expand();
+                    treeNode.Nodes.Add(childNode);
+                    this.treeView1.Nodes.Add(treeNode);
+                    Tendered += /*double.Parse((*/Scanner.GetProducts(barcode).sellingP;//).ToString());
+                    lbTendered.Text = "Tendered: " + Tendered;
                 }
                 else //if(Test==false || Barcode_textBox.Text=="")
                 {

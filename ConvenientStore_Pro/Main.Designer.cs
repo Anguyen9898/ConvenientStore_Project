@@ -56,10 +56,11 @@
             this.lb_Note = new System.Windows.Forms.Label();
             this.Barcode_textBox = new System.Windows.Forms.TextBox();
             this.sC_Detail = new System.Windows.Forms.SplitContainer();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.sC_Main = new System.Windows.Forms.SplitContainer();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbTendered = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Tool)).BeginInit();
             this.sC_Tool.Panel1.SuspendLayout();
             this.sC_Tool.Panel2.SuspendLayout();
@@ -80,12 +81,13 @@
             this.sC_Text.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Detail)).BeginInit();
             this.sC_Detail.Panel1.SuspendLayout();
+            this.sC_Detail.Panel2.SuspendLayout();
             this.sC_Detail.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sC_Main)).BeginInit();
             this.sC_Main.Panel1.SuspendLayout();
             this.sC_Main.Panel2.SuspendLayout();
             this.sC_Main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -455,40 +457,21 @@
             this.sC_Detail.Panel1.BackColor = System.Drawing.Color.Transparent;
             this.sC_Detail.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.sC_Detail.Panel1.Controls.Add(this.pictureBox1);
-            this.sC_Detail.Panel1.Controls.Add(this.listBox1);
+            this.sC_Detail.Panel1.Controls.Add(this.treeView1);
             this.sC_Detail.Panel1.Controls.Add(this.splitter1);
+            // 
+            // sC_Detail.Panel2
+            // 
+            this.sC_Detail.Panel2.Controls.Add(this.lbTendered);
             this.sC_Detail.Size = new System.Drawing.Size(490, 367);
-            this.sC_Detail.SplitterDistance = 280;
+            this.sC_Detail.SplitterDistance = 316;
             this.sC_Detail.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ConvenientStore_Pro.Properties.Resources.Picture10;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(487, 280);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // listBox1
-            // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 24;
-            this.listBox1.Location = new System.Drawing.Point(3, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(487, 280);
-            this.listBox1.TabIndex = 1;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 280);
+            this.splitter1.Size = new System.Drawing.Size(3, 316);
             this.splitter1.TabIndex = 0;
             this.splitter1.TabStop = false;
             // 
@@ -509,6 +492,38 @@
             this.sC_Main.Size = new System.Drawing.Size(800, 450);
             this.sC_Main.SplitterDistance = 494;
             this.sC_Main.TabIndex = 0;
+            // 
+            // treeView1
+            // 
+            this.treeView1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Location = new System.Drawing.Point(3, 0);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(487, 316);
+            this.treeView1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ConvenientStore_Pro.Properties.Resources.Picture10;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(487, 316);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lbTendered
+            // 
+            this.lbTendered.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbTendered.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTendered.Location = new System.Drawing.Point(218, 0);
+            this.lbTendered.Name = "lbTendered";
+            this.lbTendered.Size = new System.Drawing.Size(272, 47);
+            this.lbTendered.TabIndex = 2;
+            this.lbTendered.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frm_Main
             // 
@@ -549,13 +564,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.sC_Text)).EndInit();
             this.sC_Text.ResumeLayout(false);
             this.sC_Detail.Panel1.ResumeLayout(false);
+            this.sC_Detail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sC_Detail)).EndInit();
             this.sC_Detail.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.sC_Main.Panel1.ResumeLayout(false);
             this.sC_Main.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sC_Main)).EndInit();
             this.sC_Main.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,8 +607,9 @@
         public System.Windows.Forms.SplitContainer sC_Detail;
         public System.Windows.Forms.Splitter splitter1;
         public System.Windows.Forms.SplitContainer sC_Main;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TreeView treeView1;
+        public System.Windows.Forms.Label lbTendered;
     }
 }
 

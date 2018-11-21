@@ -44,7 +44,7 @@ namespace DAO
                 while (dr.Read())
                 {
                     proN = dr[1].ToString();
-                    sellingP = float.Parse(dr[4].ToString());
+                    sellingP = float.Parse(dr[5].ToString());
                     netW = dr[7].ToString();
                 }
                 pro = new Product(proN, netW, sellingP);
