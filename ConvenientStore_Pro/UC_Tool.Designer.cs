@@ -154,6 +154,7 @@
             this.btn_Cus.TabIndex = 2;
             this.btn_Cus.Text = "Customer";
             this.btn_Cus.UseVisualStyleBackColor = true;
+            this.btn_Cus.Click += new System.EventHandler(this.btn_Cus_Click);
             // 
             // UC_Tool
             // 

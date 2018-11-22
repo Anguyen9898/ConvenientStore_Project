@@ -32,5 +32,11 @@ namespace ConvenientStore_Pro
             frm_SignOff signOff = new frm_SignOff();
             signOff.ShowDialog();
         }
+
+        private void btn_Cus_Click(object sender, EventArgs e)
+        {
+            Customer_cs cus_cs = new Customer_cs();
+            cus_cs.ShowDialog();
+        }
     }
 }
