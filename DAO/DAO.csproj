@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="ScannerDao.cs" />
     <Compile Include="SigOnDAO.cs" />

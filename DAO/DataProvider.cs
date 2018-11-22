@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 namespace DAO
 {
     public class DataProvider
     {
+        // Đối tượng dùng để kết nối. 
         SqlConnection cn;
+        // Đối tượng thực hiện các câu lệnh thêm, sửa, xóa. 
+        private SqlCommand sqlCommand;
+        // Đối tượng dùng để lấy dữ liệu table từ các câu lệnh truy vấn. 
+        private SqlDataAdapter sqlAdapter;
+        // Đối tượng table dùng để chứa dữ liệu. 
+        private DataTable dtTable;
+
         public DataProvider()
         {
-            string cnStr = @"Data Source= (local)\SQLEXPRESS;Initial Catalog=Store;Integrated Security=True";
+            string cnStr = @"Data Source= DESKTOP-9NDS0EG;Initial Catalog=Store;Integrated Security=True";
             cn = new SqlConnection(cnStr);
         }
         public void Connect()
@@ -69,6 +78,13 @@ namespace DAO
                 throw ex;
             }
         }
+        public DataTable GetDataTable(string strCode)
+        {
+            dtTable = new DataTable();
+            sqlAdapter = new SqlDataAdapter(strCode, cn);
+            sqlAdapter.Fill(dtTable);
+            return dtTable;
+        }
         public int myExcuteNonQuery(string sql)
         {
             SqlCommand cmd = new SqlCommand(sql, cn);
@@ -88,5 +104,6 @@ namespace DAO
                 DisConnect();
             }
         }
+
     }
 }
