@@ -32,7 +32,7 @@ namespace DAO
         }
         public Product GetProducts(string barcode)
         {
-            string sql = "SELECT * FROM Product WHERE Barcode = '" + barcode + "'";
+            string sql = "SELECT* FROM Product WHERE Barcode = '" + barcode + "'";
             string proN = "";
             float sellingP = 0;
             string netW = "";
@@ -59,6 +59,65 @@ namespace DAO
             finally
             {
                 DisConnect();
+            }
+        }
+        public int setBill(Bill bill)
+        {
+            String sql = "INSERT INTO Bill (billcode, dayofSale, totalMoney) VALUES('" + bill.billCode + "', '"   + bill.day + "', " + bill.total + ")" ;
+            try
+            {
+                return myExcuteNonQuery(sql);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<Bill> GetBill()
+        {
+            string sql = "SELECT* FROM Bill";
+            string billCode = "";
+            DateTime day = new DateTime();
+            double total = 0;
+            //Bill bill;
+            List<Bill> list = new List<Bill>();
+            try
+            {
+                Connect();
+                SqlDataReader dr = myExcuteReader(sql);
+                while (dr.Read())
+                {
+                    billCode = dr[0].ToString();
+                    day = DateTime.Parse(dr[3].ToString());
+                    total = double.Parse(dr[4].ToString());
+                    Bill bill = new Bill(billCode, day, total);
+                    list.Add(bill);
+                }
+                dr.Close();
+                return list;
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                DisConnect();
+            }
+        }
+        public int setDetailBill(DetailBill detailBill)
+        {
+            String sql = "INSERT INTO detailBill (Quantity, Price, Discount, toMoney) VALUES('"+ detailBill.Quan + "' , " + detailBill.price + ", '" + detailBill.Discount + "', " + detailBill.total+ ")";
+            try
+            {
+                return myExcuteNonQuery(sql);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
             }
         }
     }

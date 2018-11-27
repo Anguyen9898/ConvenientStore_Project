@@ -12,10 +12,12 @@ namespace ConvenientStore_Pro
 {
     public partial class frm_SignOn : Form
     {
-        public double Funds { get; set; }
+        frm_Sum sum;
         public frm_SignOn()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            sum = new frm_Sum();
+           sum. Funds = 0;
         }
         private void frm_SignOn_Shown(object sender, EventArgs e)
         {
@@ -246,7 +248,7 @@ namespace ConvenientStore_Pro
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            Funds = double.Parse(txtTong.Text);
+            sum.Funds = double.Parse(txtTong.Text);
         }
     }  
 }

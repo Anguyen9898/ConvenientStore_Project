@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Collections;
 using BUS;
 using DTO;
 
@@ -23,13 +24,19 @@ namespace ConvenientStore_Pro
         Tender_CusBUS Tender_CusBUS;
         String barcode="";
         TreeNode treeNode;
+        TreeNode childNode;
+        TreeNode childNode2;
         String cusCode="";
         String cusName = "";
+        Sum sum;
         bool Test = false;
-        double Funds = 0;
+        //double Funds = 0;
         double Tendered = 0;
-        double Cash = 0;
-        double Cre = 0;
+       
+        int i = 0;
+        //int billCode = 1;
+        //string i= "1";
+        public int Quan { get; set; }
         public string EmployeeName { get; set; }
         public frm_Main()
         {
@@ -40,6 +47,7 @@ namespace ConvenientStore_Pro
             signOff = new frm_SignOff();
             Sum = new frm_Sum();
             Tender_CusBUS = new Tender_CusBUS();
+            sum = new Sum();
             UC_SignOn.Instance.btn_SignOn.Click += Btn_SignOn_Click;
             UC_OK.Instance.btn_OK.Click += Btn_OK_Tool_Click;
             UC_Tool.Instance.btn_Off.Click += Btn_Off_Click;
@@ -49,30 +57,127 @@ namespace ConvenientStore_Pro
             UC_TenderMethod.Instance.btn_Can.Click += Btn_Can_Click1;
             UC_TenderMethod.Instance.btn_Cre.Click += Btn_Cre_Click;
             UC_TenderMethod.Instance.btn_Cash.Click += Btn_Cash_Click;
+            UC_Tool.Instance.btn_Quan.Click += Btn_Quan_Click;
+            UC_Tool.Instance.btn_Void.Click += Btn_Void_Click;
+            UC_Tool.Instance.btn_Sup.Click += Btn_Sup_Click;
+            UC_Tool.Instance.btn_Reprint.Click += Btn_Reprint_Click;
         }
 
+        private void Btn_Reprint_Click(object sender, EventArgs e)
+        {
+            frm_ReprintBill frm = new frm_ReprintBill();
+            frm.ShowDialog();
+        }
+
+        private void Btn_Sup_Click(object sender, EventArgs e)
+        {
+            List<TreeNodeCollection> list = new List<TreeNodeCollection>();
+            list.Add(this.treeView1.Nodes);
+            this.treeView1.Nodes.Clear();
+            pictureBox1.Visible = true;
+        }
+
+        private void Btn_Void_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode==null)
+            {
+                return; 
+            }
+            else
+            {
+                if (treeView1.SelectedNode == childNode)
+                    treeView1.SelectedNode = treeNode;
+                treeView1.SelectedNode.Remove();
+            }
+             if (this.treeView1.Nodes.Count == 0)
+                pictureBox1.Visible = true;
+        }
+
+        private void Btn_Quan_Click(object sender, EventArgs e)
+        {
+            if (treeView1.SelectedNode == null)
+                return;
+            else
+            {
+                lb_Note.Text = "How many items do you sell?";
+                sC_Tool2.Panel2.Controls.Remove(UC_Tool.Instance);
+                sC_Tool2.Panel2.Controls.Add(UC_Em.Instance);
+                UC_OK.Instance.Dock = DockStyle.Fill;
+                Barcode_textBox.Text = "1";
+                Barcode_textBox.Focus();
+            }
+        }
+        public TreeNode TreePro(int Quan)
+        {
+            treeNode = new TreeNode("--   " + Scanner.GetProducts(barcode).proName + "                         " +
+                        "                " + Scanner.GetProducts(barcode).netW + "                   " + (Quan*Scanner.GetProducts(barcode).sellingP).ToString("###,###"));
+            treeNode.Expand();
+            childNode = new TreeNode("       " + barcode);
+            childNode.Expand();
+            childNode2 = new TreeNode("       Quantity: " + Quan);
+            treeNode.Nodes.Add(childNode);
+            //this.treeView1.Nodes.Add(treeNode);
+            return treeNode;
+        }
         private void Btn_Cash_Click(object sender, EventArgs e)
         {
-            Cash += Tendered;
-            lb_Note.Text = "Enter Customer's Cash";
-            Barcode_textBox.Focus();
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_Em.Instance);
-            UC_Em.Instance.Dock = DockStyle.Fill;
+            DateTime dt = DateTime.Now;
+            string billCode = "#000" + i++;
+            Bill bill = new Bill(billCode, dt, Tendered);
+            Sum.Cash = 0;
+            try
+            {
+                int numOfRows = Scanner.setBill(bill);
+                if (numOfRows > 0)
+                {
+                    
+                    Sum.Cash += Tendered;
+                    lb_Note.Text = "Enter Customer's Cash";
+                    Barcode_textBox.Focus();
+                    sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
+                    sC_Tool2.Panel2.Controls.Add(UC_Em.Instance);
+                    UC_Em.Instance.Dock = DockStyle.Fill;
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu\n" + ex.Message, "Connection Failed");
+            }
+            /*DetailBill Dbill = new DetailBill("1", Scanner.GetProducts(barcode).sellingP, "", Tendered);
+            if (Scanner.setdetailBill(Dbill) < 0)
+            {
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu\n", "Connection Failed");
+            }*/
         }
 
         private void Btn_Cre_Click(object sender, EventArgs e)
         {
-            Cre += Tendered;
-            Barcode_textBox.Text = null;
-            this.treeView1.Nodes.Clear();
-            treeNode = null;
-            sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
-            sC_Tool2.Panel2.Controls.Add(UC_OK.Instance);
-            UC_OK.Instance.Dock = DockStyle.Fill;
-            lb_Note.Text = "Done";
-            Tendered = 0;
-            lbTendered.Text = "Tender:   ";
+            DateTime dt = DateTime.Now;
+            Bill bill = new Bill("#000" + i++, dt, Tendered);
+           Sum.Cre = 0;
+            try
+            {
+                int numOfRows = Scanner.setBill(bill);
+                if (numOfRows > 0)
+                {
+                    Sum.Cre+= Tendered;
+                    Barcode_textBox.Text = null;
+                    this.treeView1.Nodes.Clear();
+                    treeNode = null;
+                    sC_Tool2.Panel2.Controls.Remove(UC_TenderMethod.Instance);
+                    sC_Tool2.Panel2.Controls.Add(UC_OK.Instance);
+                    UC_OK.Instance.Dock = DockStyle.Fill;
+                    lb_Note.Text = "Done";
+                    Tendered = 0;
+                    lbTendered.Text = "Tender:   ";
+                }
+            }
+            catch (SqlException ex)
+            {
+
+                MessageBox.Show("Lỗi kết nối cơ sở dữ liệu\n" + ex.Message, "Connection Failed");
+            }
         }
         private void Btn_Can_Click1(object sender, EventArgs e)
         {
@@ -137,6 +242,8 @@ namespace ConvenientStore_Pro
                 Enter_btn_TenderCus();
             else if (lb_Note.Text == "Enter Customer's Cash")
                 Enter_ChangeDue();
+            else if (lb_Note.Text == "How many items do you sell?")
+                Quan = Enter_Qan();
         }
         private void Enter_btn_ID()
         {
@@ -183,7 +290,7 @@ namespace ConvenientStore_Pro
                         UC_Tool.Instance.Dock = DockStyle.Fill;
                         lb_Note.Text = "Please scan barcode or input from keyboard";
                         Barcode_textBox.PasswordChar = '\0';
-                        Funds = SignOn.Funds;
+                        //Funds = SignOn.Funds;
                     }
                     else if (SignOn.DialogResult == DialogResult.Cancel)
                     {
@@ -218,14 +325,9 @@ namespace ConvenientStore_Pro
                 {
                     Barcode_textBox.Text = null;
                     pictureBox1.Visible = false;
-                    treeNode = new TreeNode("--   " + Scanner.GetProducts(barcode).proName + "                         " +
-                        "                " + Scanner.GetProducts(barcode).netW + "                   " + Scanner.GetProducts(barcode).sellingP.ToString("###,###"));
-                    treeNode.Expand();
-                    TreeNode childNode = new TreeNode("       " + barcode + "    @1");
-                    childNode.Expand();
-                    treeNode.Nodes.Add(childNode);
-                    this.treeView1.Nodes.Add(treeNode);
-                    Tendered += /*double.Parse((*/Scanner.GetProducts(barcode).sellingP;//).ToString());
+                    this.treeView1.Nodes.Add(TreePro(1));
+                    //treeView1.SelectedNode = treeNode;
+                    Tendered = Tendered+ Scanner.GetProducts(barcode).sellingP;
                     lbTendered.Text = "Tendered: " + Tendered.ToString("###,###");
                 }
                 else //if(Test==false || Barcode_textBox.Text=="")
@@ -276,6 +378,18 @@ namespace ConvenientStore_Pro
                 Unknow();
             }
         }
+        private int Enter_Qan()
+        {
+            int i = int.Parse(Barcode_textBox.Text);
+            sC_Tool2.Panel2.Controls.Remove(UC_OK.Instance);
+            sC_Tool2.Panel2.Controls.Add(UC_Tool.Instance);
+            UC_OK.Instance.Dock = DockStyle.Fill;
+            lb_Note.Text = "Please scan barcode or input from keyboard";
+            Barcode_textBox.Text = "";
+            this.treeView1.Nodes.Remove(treeView1.SelectedNode);
+
+            return i;
+        }
         private void Btn_OK_Tool_Click(object sender, EventArgs e)
         {
             Barcode_textBox.Text = "";
@@ -284,6 +398,7 @@ namespace ConvenientStore_Pro
             UC_Tool.Instance.Dock = DockStyle.Fill;
             lb_Note.Text = "Please scan barcode or input from keyboard";
             Barcode_textBox.Focus();
+            pictureBox1.Visible = true;
         }
         private void Enter_ChangeDue()
         {
@@ -343,10 +458,6 @@ namespace ConvenientStore_Pro
         private void Btn_Off_Click(object sender, EventArgs e)
         {
             signOff.ShowDialog();
-            if(signOff.DialogResult==DialogResult.OK)
-            {
-                Sum.ShowDialog();
-            }
         }
 
         private void Btn_SignOn_Click(object sender, EventArgs e)

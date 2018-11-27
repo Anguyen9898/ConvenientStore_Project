@@ -74,11 +74,11 @@
     <Compile Include="frm_SignOn.Designer.cs">
       <DependentUpon>frm_SignOn.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_printBill.cs">
+    <Compile Include="frm_ReprintBill.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_printBill.Designer.cs">
-      <DependentUpon>frm_printBill.cs</DependentUpon>
+    <Compile Include="frm_ReprintBill.Designer.cs">
+      <DependentUpon>frm_ReprintBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +86,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Sum.cs" />
+    <Compile Include="UC_Supend.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_Supend.Designer.cs">
+      <DependentUpon>UC_Supend.cs</DependentUpon>
     </Compile>
     <Compile Include="UC_TenderMethod.cs">
       <SubType>UserControl</SubType>
@@ -125,8 +132,8 @@
       <DependentUpon>UC_SignOn.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <EmbeddedResource Include="frm_printBill.resx">
-      <DependentUpon>frm_printBill.cs</DependentUpon>
+    <EmbeddedResource Include="frm_ReprintBill.resx">
+      <DependentUpon>frm_ReprintBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_SignOff.resx">
       <DependentUpon>frm_SignOff.cs</DependentUpon>
@@ -144,6 +151,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_Supend.resx">
+      <DependentUpon>UC_Supend.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UC_TenderMethod.resx">
       <DependentUpon>UC_TenderMethod.cs</DependentUpon>

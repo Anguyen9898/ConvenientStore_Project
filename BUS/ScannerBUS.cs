@@ -32,5 +32,41 @@ namespace BUS
                 throw ex;
             }
         }
+        public int setBill(Bill bill)
+        {
+            try
+            {
+                return new ScannerDAO().setBill(bill);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+        public List<Bill> GetBill()
+        {
+            try
+            {
+                return new ScannerDAO().GetBill();
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
+        public int setdetailBill(DetailBill bill)
+        {
+            try
+            {
+                return new ScannerDAO().setDetailBill(bill);
+            }
+            catch (SqlException ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

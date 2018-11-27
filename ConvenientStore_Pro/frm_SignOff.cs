@@ -7,15 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace ConvenientStore_Pro
 {
     public partial class frm_SignOff : Form
     {
         //private int a=0;
+        frm_Sum sum;
         public frm_SignOff()
         {
             InitializeComponent();
+            sum = new frm_Sum();
+            sum.Doanhthu = 0;
         }
 
         private void frm_SignOff_Load(object sender, EventArgs e)
@@ -187,7 +189,10 @@ namespace ConvenientStore_Pro
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            frm_Sum sum = new frm_Sum();
+            sum.ShowDialog();
+           sum.Doanhthu = double.Parse(txtTong.Text);
         }
+        
     }
 }
